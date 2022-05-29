@@ -1,0 +1,39 @@
+<div class="card m-3">
+        <div class="card-header">{{ title }}</div>
+        <div class="card-body">
+                <div class="table-responsive">
+                        <table class="table">
+                                <thead class="thead-light">
+                                        <tr class="align-middle">
+                                                <th>
+                                                        <button class="btn btn-primary">Show Image</button>
+                                                </th>
+                                                <th>Product</th>
+                                                <th>Code</th>
+                                                <th>Available</th>
+                                                <th>Price</th>
+                                                <th>Rating</th>
+                                                <th></th>
+                                                <th></th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr class="align-middle" *ngFor="let i of products">
+                                                <td>
+                                                        <img [src]="i.imageURL" alt="image"
+                                                                [style.width.px]="imageWidth"
+                                                                [style.margin.px]="imageMargin" />
+                                                </td>
+                                                <td>{{ i.productCode }}</td>
+                                                <td>{{ i.productName }}</td>
+                                                <td>{{ i.availability }}</td>
+                                                <td>{{ i.price }}</td>
+                                                <td>{{ i.rating }}</td>
+                                                <td><button class="button"><i class="fa-solid fa-trash-can"></i></button></td>
+                                                <td><button class="button"><i class="fa-solid fa-pen-to-square"></i></button></td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+</div>
