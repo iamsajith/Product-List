@@ -10,8 +10,8 @@ export class ProductService {
 
   getProducts(){return this.http.get('http://localhost:5000/products')}
 
-  // addProducts(item: any) {
+  addProducts(item: any) {
 
-  //   return this.http.post('http://localhost:3000/insert', { item }).subscribe(data => { console.log(data) });
-  // }
+    return this.http.post('http://localhost:5000/insert', { item }).subscribe(data => { console.log(data) });
+  }
   }

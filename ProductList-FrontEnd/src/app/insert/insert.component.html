@@ -1,32 +1,32 @@
 <div class="card mx-5">
   <router-outlet></router-outlet>
-  <form>
+  <form (ngSubmit)="NewProduct()">
     <div class="card-body">
       <table class="table">
         <tbody>
           <tr class="align-middle">
             <th>Product</th>
-            <th><input type="text" placeholder="Product" name="p_name"></th>
+            <th><input type="text" placeholder="Product" name="p_name" [(ngModel)]="productItem.productName"></th>
           </tr>
           <tr class="align-middle">
             <th>Code</th>
-            <th><input type="text" placeholder="Code" name="p_code" ></th>
+            <th><input type="text" placeholder="Code" name="p_code" [(ngModel)]="productItem.productCode"></th>
           </tr>
           <tr class="align-middle">
             <th>Availability</th>
-            <th><input type="text" placeholder="Availability" name="p_availability"></th>
+            <th><input type="text" placeholder="Availability" name="p_availability" [(ngModel)]="productItem.availability"></th>
           </tr>
           <tr class="align-middle">
             <th>Price</th>
-            <th><input type="text" placeholder="Price" name="p_price" ></th>
+            <th><input type="text" placeholder="Price" name="p_price" [(ngModel)]="productItem.price"></th>
           </tr>
           <tr class="align-middle">
             <th>Rating</th>
-            <th><input type="text" placeholder="Rating" name="p_rating" ></th>
+            <th><input type="text" placeholder="Rating" name="p_rating" [(ngModel)]="productItem.rating"></th>
           </tr>
           <tr class="align-middle">
             <th>Image URL</th>
-            <th><input type="text" placeholder="URL" name="p_image"></th>
+            <th><input type="text" placeholder="URL" name="p_image" [(ngModel)]="productItem.imageUrl"></th>
           </tr>
           <tr class="align-middle">
             <th></th>

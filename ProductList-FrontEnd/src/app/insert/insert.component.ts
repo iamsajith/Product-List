@@ -15,15 +15,15 @@ import { FormsModule }  from '@angular/forms';
 export class InsertComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(public productService:ProductService) { }
 
-  // productItem:any =new ProductModel("",0,0,0,"","")
+  productItem:any =new ProductModel("",0,0,0,"","")
 
   ngOnInit(): void { }
-  // NewProduct(){
-  //   this.productService.addProducts(this.productItem);
-  //   console.log("Called")
-  //   alert("Success");
-  //   (<any>this.router).navigate(['/']);
-  // }
+  NewProduct(){
+    this.productService.addProducts(this.productItem);
+    // console.log("Called")
+    // alert("Success");
+    // (<any>this.router).navigate(['/']);
+  }
 }
