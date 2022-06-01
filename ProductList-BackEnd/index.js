@@ -32,7 +32,7 @@ app.post('/insert',(req,res)=>{
   rating: req.body.item.rating,
   imageUrl: req.body.item.imageUrl,
 }
-var products = new Productdata(product);
+var products = new ProductData(product);
 
 products.save();
 
