@@ -4,10 +4,10 @@ const schema = mongoose.Schema;
 
 var ProductSchema = new schema({
  productCode: String,
- productName: String,
- availablility: String,
+ availability: Number,
  price: Number,
  rating: Number,
+ productName: String,
  imageUrl: String
 })
 

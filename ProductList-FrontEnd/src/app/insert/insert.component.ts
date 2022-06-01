@@ -22,8 +22,8 @@ export class InsertComponent implements OnInit {
   ngOnInit(): void { }
   NewProduct(){
     this.productService.addProducts(this.productItem);
-    // console.log("Called")
-    // alert("Success");
-    // (<any>this.router).navigate(['/']);
+    console.log("Called")
+    alert("Success");
+    // this.route.navigate(['/']);
   }
 }
