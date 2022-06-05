@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { ProductModel } from '../product-list/product.model';
 import { ProductService } from '../product.service';
-
-
-import { FormsModule }  from '@angular/forms';
 
 @Component({
   selector: 'app-insert',
@@ -15,7 +11,7 @@ import { FormsModule }  from '@angular/forms';
 export class InsertComponent implements OnInit {
   
 
-  constructor(public productService:ProductService) { }
+  constructor(public productService:ProductService, public route:Router ) { }
 
   productItem:any =new ProductModel("",0,0,0,"","")
 
@@ -24,6 +20,7 @@ export class InsertComponent implements OnInit {
     this.productService.addProducts(this.productItem);
     console.log("Called")
     alert("Success");
-    // this.route.navigate(['/']);
+    console.log(this.productItem)
+    this.route.navigate(['/']);
   }
 }
