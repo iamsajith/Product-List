@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService:ProductService, public route:Router) { }
 
   title:string = "Product Dashboard";
 
   ngOnInit(): void {
   }
+ removeAll(){
+  this.productService.removeProducts()
+  console.log('Deleted')
+  this.route.navigate(['/']);
+ }
+  
 
 }

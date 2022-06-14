@@ -11,6 +11,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { InsertComponent } from './insert/insert.component';
 import { ProductListHeaderComponent } from './product-list-header/product-list-header.component';
 import { ProductAddHeaderComponent } from './product-add-header/product-add-header.component';
+import { LoginComponent } from './login/login.component';
+import { UpdateComponent } from './update/update.component';
+import { UpdateHeaderComponent } from './update-header/update-header.component';
+import { HomeComponent } from './home/home.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { ProductAddHeaderComponent } from './product-add-header/product-add-head
     ProductListComponent,
     InsertComponent,
     ProductListHeaderComponent,
-    ProductAddHeaderComponent
+    ProductAddHeaderComponent,
+    LoginComponent,
+    UpdateComponent,
+    UpdateHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,7 @@ import { ProductAddHeaderComponent } from './product-add-header/product-add-head
     FormsModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

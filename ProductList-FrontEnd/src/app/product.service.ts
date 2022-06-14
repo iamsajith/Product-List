@@ -14,4 +14,10 @@ export class ProductService {
 
     return this.http.post('http://localhost:5000/insert', { item }).subscribe(data => { console.log(data) });
   }
+  removeProducts(){
+    return this.http.delete('http://localhost:5000/products/clear').subscribe(()=>{  
+      console.log("Deleted");  
+  });
+  }
+
   }

@@ -18,6 +18,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
       this.products = JSON.parse(JSON.stringify(data))
+      // console.log(this.products[0]._id)
+      
     })
   }
 
