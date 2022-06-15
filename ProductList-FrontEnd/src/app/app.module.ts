@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { UpdateComponent } from './update/update.component';
 import { UpdateHeaderComponent } from './update-header/update-header.component';
 import { HomeComponent } from './home/home.component';
+import { ProductService } from './product.service';
 import { AuthService } from './auth.service';
 
 @NgModule({
@@ -37,7 +38,7 @@ import { AuthService } from './auth.service';
     FormsModule,
     CommonModule,
   ],
-  providers: [AuthService],
+  providers: [ProductService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

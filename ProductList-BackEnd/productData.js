@@ -11,6 +11,10 @@ var ProductSchema = new schema({
  imageUrl: String
 })
 
+
+
+
+
 var ProductData = mongoose.model('products', ProductSchema)
 
 module.exports = ProductData

@@ -9,8 +9,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(authData:any){
-    return this.http.post("http://localhost:5000/login",authData).subscribe((data)=>{  
-      console.log(data,'loaded');  
-  });
+    return this.http.post<any>("http://localhost:5000/login",{authData})
     }
   }
