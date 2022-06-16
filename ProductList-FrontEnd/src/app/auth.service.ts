@@ -11,4 +11,8 @@ export class AuthService {
   login(authData:any){
     return this.http.post<any>("http://localhost:5000/login",{authData})
     }
+    
+    loggedIn(){
+      return !!localStorage.getItem('token')
+    }
   }

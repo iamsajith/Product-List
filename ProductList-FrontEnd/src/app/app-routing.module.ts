@@ -8,8 +8,9 @@ import { ProductListHeaderComponent } from './product-list-header/product-list-h
 import { ProductListComponent } from './product-list/product-list.component';
 import { UpdateHeaderComponent } from './update-header/update-header.component';
 import { UpdateComponent } from './update/update.component';
+import { AuthGuard } from './auth.guard';
 
-const routes: Routes = [{path:'login',component:LoginComponent},{path:'',component:HomeComponent,children:[{path:'',component:ProductListComponent,children:[{path:'',component:ProductListHeaderComponent}]},
+const routes: Routes = [{path:'login',component:LoginComponent},{path:'',canActivate:[AuthGuard],component:HomeComponent,children:[{path:'',component:ProductListComponent,children:[{path:'',component:ProductListHeaderComponent}]},
 {path:'add',component:InsertComponent,children:[{path:'',component:ProductAddHeaderComponent}]},
 {path:'update',component:UpdateComponent,children:[{path:'',component:UpdateHeaderComponent}]}
 ]}];
