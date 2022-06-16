@@ -15,7 +15,28 @@ user = {
   password: "9207612472",
 };
 
-app.get("/products", (req, res) => {
+verifyToken = (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(401).send("Unauthorized request");
+  }
+  let token = req.headers.authorization.split(" ");
+  console.log("token",token[1]);
+  if (token[1] == "null") {
+    return res.status(401).send("Unauthorized request");
+  }
+  if (token.length !== 3 ){
+    return res.status(401).send("Unauthorized request")
+  }
+  let payload = jwt.verify(token[1], "secretKey");
+  console.log(payload);
+  if (!payload) {
+    return res.status(401).send("Unauthorized request");
+  }
+  req.userId = payload.subject;
+  next();
+};
+
+app.get("/products", verifyToken, (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   ProductData.find().then((products) => {
@@ -53,18 +74,15 @@ app.post("/login", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Method:GET,POST,PUT,DELETE");
   let data = req.body.authData;
-  if (data.username != user.username){
-     res.status(401).send("Invalid username")
-
-  }
-  else if (data.password != user.password){
-    res.status(401).send("Invalid password")
-  } 
-  else{
-    console.log(data.password)
-   let payload = {subject:user.username + user.password}
-   let token = jwt.sign(payload,"secretKey")
-   res.status(200).send({token})
+  if (data.username != user.username) {
+    res.status(401).send("Invalid username");
+  } else if (data.password != user.password) {
+    res.status(401).send("Invalid password");
+  } else {
+    console.log(data.password);
+    let payload = { subject: user.username + user.password };
+    let token = jwt.sign(payload, "secretKey");
+    res.status(200).send({ token });
   }
 });
 
