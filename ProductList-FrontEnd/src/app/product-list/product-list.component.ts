@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from './product.model';
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,public _auth:AuthService) { }
   title: string = "Product List";
   products: ProductModel[] | any;
   imageWidth: number = 50;

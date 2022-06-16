@@ -1,10 +1,10 @@
 <div class="card-header">
  <ul class="nav nav-tabs card-header-tabs">
    <li class="nav-item">
-     <a class="nav-link active" routerLink="/home">Products</a>
+     <a class="nav-link active" routerLink="/home" >Products</a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" routerLink="/add">Add</a>
+     <a class="nav-link" routerLink="/add" *ngIf=_auth.loggedIn() (click)="redirect()">Add</a>
    </li>
  </ul>
 </div>
