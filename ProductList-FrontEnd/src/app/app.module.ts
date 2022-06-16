@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{HttpClientModule} from '@angular/common/http'
-import { FormsModule }   from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { UpdateHeaderComponent } from './update-header/update-header.component';
 import { HomeComponent } from './home/home.component';
 import { ProductService } from './product.service';
 import { AuthService } from './auth.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AuthService } from './auth.service';
     LoginComponent,
     UpdateComponent,
     UpdateHeaderComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,15 @@ import { AuthService } from './auth.service';
     FormsModule,
     CommonModule,
   ],
-  providers: [ProductService,AuthService],
-  bootstrap: [AppComponent]
+  providers: [
+    ProductService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
