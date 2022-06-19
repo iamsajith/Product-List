@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
   console.log('Deleted')
   this.route.navigate(['/']);
  }
+ logout(){
+  localStorage.removeItem('token')
+  this.route.navigate(['/login'])
+ }
   
 
 }

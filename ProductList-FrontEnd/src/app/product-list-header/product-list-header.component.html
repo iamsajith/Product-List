@@ -4,7 +4,8 @@
      <a class="nav-link active" routerLink="/home" >Products</a>
    </li>
    <li class="nav-item">
-     <a class="nav-link" routerLink="/add" *ngIf=_auth.loggedIn() (click)="redirect()">Add</a>
+     <a class="nav-link" 
+      *ngIf=_auth.loggedIn() (click)="redirect()">Add</a>
    </li>
  </ul>
 </div>

@@ -14,7 +14,14 @@ export class ProductListHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   redirect(){
-    this._router.navigate(['/add'])
+    if(this._auth.loggedIn()){
+      this._router.navigate(['/add'])
+    }
+    else{
+      console.log("logout")
+      this._router.navigate(['/login'])
+    }
+    
   }
 
 }

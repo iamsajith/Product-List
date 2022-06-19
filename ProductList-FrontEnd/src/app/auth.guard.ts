@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
   constructor(private _auth: AuthService, private router: Router) {}
   canActivate(): boolean {
     if (this._auth.loggedIn()) {
+      console.log('Failed')
       return true;
     } else {
       this.router.navigate(['/login'])
